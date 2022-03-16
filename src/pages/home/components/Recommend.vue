@@ -7,7 +7,7 @@
           <router-link
            tag="li"
            class="item border-bottom"
-           v-for="(item,index) of recommendList" 
+           v-for="(item,index) of list" 
            :key="index"
            :to="'/detail/' + item.id"
            >
@@ -30,21 +30,6 @@ export default {
     props:{
         list:Array
     },
-    data(){
-        return{
-            recommendList:[{
-                id:'0001',
-                imgUrl:'1',
-                title:'大连圣亚海洋世界',
-                desc:'浪漫大连首站，浪漫的海洋主题乐园'
-            },{
-                id:'0001',
-                imgUrl:'1',
-                title:'大连圣亚海洋世界',
-                desc:'浪漫大连首站，浪漫的海洋主题乐园'
-            }]
-        }
-    }
 }
 </script>
 
