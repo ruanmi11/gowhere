@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <city-header></city-header>
+        <city-header></city-header> 
     </div>
 </template>
 
