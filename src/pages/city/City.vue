@@ -1,13 +1,14 @@
 <template>
     <div class="header">
         <city-header></city-header> 
+        <city-search></city-search>
     </div>
 </template>
 
 <script>
 // import axios from 'axios';
-import CityHeader from './components/Header';
-// import CitySearch from './components/Search';
+import CityHeader from './components/Header'; 
+import CitySearch from './components/Search';
 // import CityList from './components/List';
 // import CityAlpabate from './components/Alpabate';
 export default {
@@ -21,7 +22,7 @@ export default {
     },
     components:{
         CityHeader,
-        // CitySearch,
+        CitySearch,
         // CityList,
         // CityAlpabate
     },
