@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="area" v-for="(item,key) of city" 
+            <div class="area" v-for="(item,key) of cities" 
             :key="key"
             :ref="key"
             >
@@ -44,32 +44,33 @@
     export default {
         name:"CityList",
         props:{
-            city:Object,
             hot:[Object,Array],
+            cities:Object,
             List:String,
             letter:String
-        },
-        methods:{
-            handleCityClick(city){
-                this.changeCity(city)
-            },
-            ...mapMutations(['changeCity'])
         },
         computed:{
             ...mapState({
                 currentCity:'city'
             })
         },
-        mounted(){
-            this.scroll = new BScroll(this.$refs.wrapper)
+        methods:{
+            handleCityClick(city){
+              this.changeCity(city)
+              this.$router.push('/')
+            },
+            ...mapMutations(['changeCity'])
         },
         watch:{
             letter(){
                 if(this.letter){
-                    const element=this.$refs[this.letter][0]
+                    const element = this.$refs[this.letter][0]
                     this.scroll.scrollToElement(element)
                 }
             }
+        },
+        mounted(){
+            this.scroll = new BScroll(this.$refs.wrapper)
         }
     }
 </script>
