@@ -5,7 +5,7 @@
                 <div class="title border-topbottom">当前城市</div>
                 <div class="button-list">
                     <div class="button-wrapper">
-                        <div class="button">{{this.currentCity}}</div>
+                        <div class="button">{{this.$store.state.city}}</div>
                     </div>
                 </div>
             </div>
@@ -47,6 +47,12 @@
             city:Object,
             hot:Array,
             letter:String
+        },
+        methods:{
+            handleCityClick(city){
+                this.$store.commit('changeCity',city)
+                this.$router.push('/')
+            }
         },
         mounted(){
             this.scroll = new BScroll(this.$refs.wrapper)
