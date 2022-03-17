@@ -21,7 +21,7 @@
                     </div>
                 </div>
             </div>
-            <div class="area" v-for="(item,key) of cities" 
+            <div class="area" v-for="(item,key) of city" 
             :key="key"
             :ref="key"
             >
@@ -40,35 +40,24 @@
 
 <script>
     import BScroll from 'better-scroll';
-    import { mapState, mapMutations } from 'vuex';
+    // import { mapState, mapMutations } from 'vuex';
     export default {
         name:"CityList",
         props:{
-            hot:[Object,Array],
-            cities:Object,
-            List:String,
+            city:Object,
+            hot:Array,
             letter:String
         },
-        computed:{
-            ...mapState({
-                currentCity:'city'
-            })
-        },
-        methods:{
-            handleCityClick(city){
-              this.changeCity(city)
-            },
-            ...mapMutations(['changeCity'])
+        mounted(){
+            this.scroll = new BScroll(this.$refs.wrapper)
         },
         watch:{
             letter(){
                 if(this.letter){
-                    const element = this.$refs[this.letter][0]
+                    const element=this.$refs[this.letter][0]
                     this.scroll.scrollToElement(element)
                 }
             }
-        },mounted(){
-            this.scroll = new BScroll(this.$refs.wrapper)
         }
     }
 </script>
