@@ -45,13 +45,13 @@
         name:"CityList",
         props:{
             city:Object,
-            hot:Array,
+            hot:[Object,Array],
+            List:String,
             letter:String
         },
         methods:{
             handleCityClick(city){
                 this.changeCity(city)
-                this.$router.push('/')
             },
             ...mapMutations(['changeCity'])
         },
