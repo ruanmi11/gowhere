@@ -6,7 +6,7 @@
         :bannerImgs="gallaryImgs"
         />
         <detail-header/>
-        <div class="cotent">
+        <div class="content">
             <detail-list  :list="list"/>
         </div>
     </div>
@@ -58,5 +58,7 @@ export default {
 </script>
 
 <style  lang="stylus" scoped >
-
+.content{
+    height: 50rem
+}
 </style>

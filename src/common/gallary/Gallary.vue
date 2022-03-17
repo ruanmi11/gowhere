@@ -40,7 +40,6 @@ export default {
     },
     methods:{
         handleGallary(){
-            // console.log('点了');
             this.$emit('myclose');
         }
     }

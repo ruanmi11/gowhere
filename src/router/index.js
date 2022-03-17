@@ -5,26 +5,25 @@ import City from '@/pages/city/City';
 import Detail from '@/pages/detail/Detail';
 Vue.use(VueRouter)
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-  {
-    path: '/city',
-    name: 'City',
-    component: City
-  },
-  {
-    path: '/detail/:id',
-    name: 'Detail',
-    component: Detail
+export default new VueRouter({
+  routes:[
+    {
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/city',
+      name: 'City',
+      component: City
+    },
+    {
+      path: '/detail/:id',
+      name: 'Detail',
+      component: Detail
+    }
+  ],
+  scrollBehavior(){
+  return {x:0,y:0}
   }
-]
-
-const router = new VueRouter({
-  routes
 })
-
-export default router

@@ -2,16 +2,18 @@
   <div class="banner" @click="handleBannerClick">
       <img class="banner-img" :src="bannerImg" alt="">
       <div class="banner-info">
-          <div class="banner-title">大连海世界(AAAA级景区)</div>
-          <div class="banner-number"><span class="iconfont banner-icon">&#xe64a;</span>39</div>
+          <div class="banner-title">{{this.sightName}}</div>
+          <div class="banner-number">
+              <span class="iconfont banner-icon">&#xe64a;</span>
+              {{this.bannerImgs.length}}
+          </div>
           <fade-animation>
                 <common-gallary 
                 :imgs="bannerImgs"  
-                v-show="another"
+                v-show="showGallary"
                 @myclose="handleGallaryClose"
                 ></common-gallary>
           </fade-animation>
-
       </div>
 
   </div>
@@ -23,42 +25,32 @@ import FadeAnimation from '../../../common/fade/FadeAnimation';
 
 export default {
     name:"DetailBanner",
+    components:{
+        CommonGallary,
+        FadeAnimation
+    },
     props:{
         sightName:String,
         bannerImg:String,
-        bannerImgs:[Array]
+        bannerImgs:[]
     },
-    // computed:{
-    //     wbbb(){
-    //         return this.another
-    //     }
-    // },
     data(){
         return {
             showGallary:false,
-            another:false
+            // another:false
         }
     },
     methods:{
         handleBannerClick(){
-            this.another = true
+            this.showGallary = true
         },
         handleGallaryClose(){
-            // 有趣了，直接关闭不行
-            // console.log(123)
-            // console.log('1',this.another)
-            // this.another = false
-            // console.log('2',this.another)
-            
-            let timer = setTimeout(() => {
-                this.another = false
+             let timer = setTimeout(() => {
+                this.showGallary = false
                 clearTimeout(timer)
             }, 10);
+            // this.showGallary=false
         }
-    },
-    components:{
-        CommonGallary,
-        FadeAnimation
     }
 }
 </script>
@@ -79,7 +71,7 @@ export default {
             bottom 0
             line-height .6rem
             color #fff
-            background-img linear-gradient(rgba(0,0,0,0),rgba(0,0,0,0.8))
+            background-img linear-gradient(top,rgba(0,0,0,0),rgba(0,0,0,0.8))
             .banner-title
                 flex 1
                 font-size .32rem

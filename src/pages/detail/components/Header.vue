@@ -23,12 +23,12 @@
 
 <script>
 export default {
-    name:"DetailBanner",
+    name:"DetailHeader",
     data(){
         return {
             showAbs:true,
             opacityStyle:{
-                opacity:1
+                opacity:0
             }
         }
     },
@@ -41,7 +41,6 @@ export default {
                 this.opacityStyle = { opacity }
                 this.showAbs = false
             }else{
-   
                 this.showAbs = true 
             }
         }
@@ -72,11 +71,11 @@ export default {
             left 50%
             transform translate(-50%,-50%)
     .header-fixed
+        z-index:2
         position fixed
         top 0
         left 0
         right 0
-        // overflow hidden
         height $headerHeight
         line-height $headerHeight
         text-align center
@@ -91,5 +90,4 @@ export default {
             text-align center
             font-size .32rem
             color #fff
-        
 </style>
